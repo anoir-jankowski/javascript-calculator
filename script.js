@@ -2,7 +2,7 @@ const display = document.getElementById("display");
 const buttons = document.querySelectorAll("button");
 
 // list of allowed operators
-const operatots = ["+", "-", "*", "/"]
+const operators = ["+", "-", "*", "/"]
 
 // loop through all buttons
 buttons.forEach(function(button) {
@@ -36,6 +36,11 @@ buttons.forEach(function(button) {
       if (operatots.includes(value) && operators.includes(lastChar)){
         return;
       }
+ 
+     // prevent multiple dots in a number
+     if (value === "." && display.value.includes(".")) {
+       return;
+     }
       display.value += value;
   });
 });
