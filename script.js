@@ -2,7 +2,7 @@ const display = document.getElementById("display");
 const buttons = document.querySelectorAll("button");
 
 // list of allowed operators
-const operators = ["+", "-", "*", "/"]
+const operators = ["+", "-", "*", "/"];
 
 // loop through all buttons
 buttons.forEach(function(button) {
@@ -33,7 +33,7 @@ buttons.forEach(function(button) {
     }  
 
       // prevent double operators
-      if (operatots.includes(value) && operators.includes(lastChar)){
+      if (operators.includes(value) && operators.includes(lastChar)){
         return;
       }
  
