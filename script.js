@@ -37,10 +37,23 @@ buttons.forEach(function(button) {
         return;
       }
  
-     // prevent multiple dots in a number
-     if (value === "." && display.value.includes(".")) {
-       return;
-     }
-      display.value += value;
+
+      // Find the last operator
+      const lastOperatorIndex = Math.max(
+        display.value.lastIndexOf("+"),
+        display.value.lastIndexOf("-"),
+        display.value.lastIndexOf("*"),
+        display.value.lastIndexOf("/")
+      );
+
+      // Get the current number
+      const currentNumber = display.value.slice(lastOperatorIndex + 1);
+
+      // Prevent multiple dots in the current number
+      if (value === "." && currentNumber.includes(".")) {
+        return;
+      }
+
+    display.value += value;
   });
 });
